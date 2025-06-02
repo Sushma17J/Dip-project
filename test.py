@@ -1,15 +1,11 @@
 import numpy as np
 import cv2
-
 #Read Image-------------------
 img = cv2.imread("a.jpg")
 img = cv2.resize(img,(800,600))
-
 #Create Trackbar----
-
 def nothing(x):
     pass
-
 #window name
 cv2.namedWindow("Color Adjustments",cv2.WINDOW_NORMAL)
 cv2.resizeWindow("Color Adjustments", (300, 300)) 
@@ -19,13 +15,10 @@ cv2.createTrackbar("Color", "Color Adjustments", 0, 255, nothing)
 #Step -2
 #Convert into gray--
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-
-
 while True:
     scale =  cv2.getTrackbarPos("Scale", "Color Adjustments")
     clr = cv2.getTrackbarPos("Color", "Color Adjustments") #getting track bar value
-    
-    
+      
     #Extracting Color Code --
     #Step - 3
     inverted_gray =  clr - gray  #inverted color image
